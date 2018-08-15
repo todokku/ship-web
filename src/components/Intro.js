@@ -7,10 +7,13 @@ const Base = Section.extend`
         ${cx('cyan.6')},
         ${cx('teal.6')}
     );
-    clip-path: polygon(0% 0%, 100% 0px, 100% 100%, 0px 90%);
+    clip-path: polygon(0% 0%, 100% 0px, 100% 100%, 0px 95%);
     min-height: 28rem;
     text-shadow: rgba(0, 0, 0, 0.376) 0px 1px 2px;
-    // Show diff clip-path on mobile
+    will-change: clip-path;
+    ${({ theme }) => theme.mediaQueries.md} {
+        clip-path: polygon(0% 0%, 100% 0px, 100% 100%, 0px 90%);
+    }
 `
 
 const Intro = props => (

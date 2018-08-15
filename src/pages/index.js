@@ -14,13 +14,13 @@ class Index extends Component {
                 <Helmet title="Home" />
                 <Header />
                 <Intro />
-                <Flex justify="center" py={5} px={4}>
-                    <Box.main w={3 / 4}>
+                <Flex flexDirection={['column', null, 'row']} justify="center" py={[4, null, 5]} px={[3, null, 4]}>
+                    <Box.main w={[1, null, 3 / 4]}>
                         <ProjectSection title="Featured" icon="star" iconColor="yellow.4" />
                         <ProjectSection title="Trending" icon="fire" iconColor="red.4" />
                         <ProjectSection title="Recently shipped" icon="clock" iconColor="gray.4" />
                     </Box.main>
-                    <Sidebar ml={4} w={1 / 4} />
+                    <Sidebar mt={[4, null, 0]} ml={[0, null, 4]} w={[1, null, 1 / 4]} />
                 </Flex>
                 <Footer />
             </Fragment>

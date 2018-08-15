@@ -9,7 +9,6 @@ const Base = Flex.withComponent('header').extend.attrs({
     justify: 'space-between',
     px: [null, 3, 4],
     pt: 0,
-    // pb: 2,
     w: 1
 })`
     position: absolute;

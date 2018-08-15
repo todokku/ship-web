@@ -11,6 +11,7 @@ const InputTextarea = Input.withComponent('textarea')
 const Form = Box.withComponent('form').extend.attrs({ bg: 'white', p: 4 })`
     box-shadow: rgba(0, 0, 0, 0.063) 0px 8px 32px;
     text-align: left;
+    will-change: border-radius;
     ${({ theme }) => theme.mediaQueries.md} {
         border-radius: ${({ theme }) => theme.radii[3]};
     }

@@ -13,7 +13,7 @@ const Base = Box.withComponent('footer').extend.attrs({
 
 const Footer = props => (
     <Base {...props}>
-        <Text align="center" f={3}>
+        <Text align="center" f={[2, 3]}>
             Made with <FA icon="code" color={colors.info} /> and <FA icon="heart" color={colors.primary} /> by{' '}
             <Link href="https://ifvictr.com" target="_blank">Victor Truong</Link>
         </Text>

@@ -3,18 +3,20 @@ import { Box, Flex, Heading, cx } from '@hackclub/design-system'
 import React from 'react'
 import ProjectCard from 'components/ProjectCard'
 
-const Base = Box.extend.attrs({
-})`
+const Base = Box.extend`
     border-radius: ${({ theme }) => theme.radius};
-    &:not(:first-of-type) {
-        margin-top: ${({ theme }) => theme.space[5]}px;
+    margin-top: ${({ theme }) => theme.space[4]}px;
+    ${({ theme }) => theme.mediaQueries.md} {
+        &:not(:first-of-type) {
+            margin-top: ${({ theme }) => theme.space[5]}px;
+        }
     }
 `
 
 const ProjectSection = ({ title, icon, iconColor, ...props }) => (
     <Base {...props}>
         <Heading.h2 mb={3}><FA icon={icon} color={cx(iconColor)} /> {title}</Heading.h2>
-        <Flex style={{ margin: '-8px' }}>
+        <Flex style={{ margin: '-8px' }} wrap>
             <ProjectCard />
             <ProjectCard />
             <ProjectCard />
