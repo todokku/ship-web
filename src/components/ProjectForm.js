@@ -62,7 +62,7 @@ const selectStyles = {
 }
 
 // TODO: Pull from API instead of hardcoding
-const tags = [
+const topics = [
     { label: 'Web', value: 'web' },
     { label: 'Mobile', value: 'mobile' },
     { label: 'AI', value: 'ai' },
@@ -134,14 +134,13 @@ const InnerForm = ({
         <Row>
             {/* TODO: Create list input for links */}
             <Box>
-                <Label>Links (if applicable)</Label>
+                <Label>Link to your project (live demo, source code, video demo, etc…)</Label>
             </Box>
             <Box>
-                <Label>Tags</Label>
+                <Label>Help your project get discovered with relevant topic tags</Label>
                 <Select
-                    name="tags"
-                    options={tags}
-                    placeholder="Help your project get discovered"
+                    name="topics"
+                    options={topics}
                     styles={selectStyles}
                     onChange={handleChange}
                     value={values.tags}
@@ -150,11 +149,10 @@ const InnerForm = ({
             </Box>
         </Row>
         {/* TODO: Add creator automatically */}
-        <Label>Authors</Label>
+        <Label>Who made this project?</Label>
         <Select
             name="authors"
             options={[{ label: 'Victor Truong', value: 'ifvictr' }]}
-            placeholder="Who made this project?"
             styles={selectStyles}
             onChange={handleChange}
             value={values.authors}
@@ -177,7 +175,7 @@ const ProjectForm = withFormik({
     }),
     validationSchema: yup.object().shape({
         name: yup.string().required('required'),
-        tagline: yup.string(),
+        tagline: yup.string().required('required'),
         description: yup.string()
     }),
     enableReinitialize: true,
