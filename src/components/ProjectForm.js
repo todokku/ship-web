@@ -11,7 +11,7 @@ const InputTextarea = Input.withComponent('textarea')
 const Form = Box.withComponent('form').extend.attrs({ bg: 'white', p: 4 })`
     box-shadow: rgba(0, 0, 0, 0.063) 0px 8px 32px;
     text-align: left;
-    ${({ theme }) => theme.mediaQueries.lg} {
+    ${({ theme }) => theme.mediaQueries.md} {
         border-radius: ${({ theme }) => theme.radii[3]};
     }
 `
@@ -154,7 +154,7 @@ const InnerForm = ({
         />
         <Row mt={4} grow={false}>
             <Button onClick={handleSubmit} disabled={isSubmitting} scale>Ship it!</Button>
-            <Button bg="black" inverted>Cancel</Button>
+            <Button bg="black" mt={[2, null, 0]} inverted>Cancel</Button>
         </Row>
     </Form>
 )

@@ -3,8 +3,10 @@ import { Box, Button, Divider, Field, Heading, cx } from '@hackclub/design-syste
 import React from 'react'
 
 const Form = Box.withComponent('form').extend.attrs({ bg: 'white', p: 4 })`
-    border-radius: ${({ theme }) => theme.radii[3]};
     text-align: left;
+    ${({ theme }) => theme.mediaQueries.md} {
+        border-radius: ${({ theme }) => theme.radii[3]};
+    }
 `
 
 const TextDivider = Divider.extend`

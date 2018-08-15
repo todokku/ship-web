@@ -1,4 +1,4 @@
-import { Flex, cx } from '@hackclub/design-system'
+import { Container, cx } from '@hackclub/design-system'
 import React, { Fragment } from 'react'
 import Helmet from 'react-helmet'
 import Header from 'components/Header'
@@ -18,9 +18,9 @@ const Login = () => (
                 );
             }
         `} />
-        <Flex flexDirection="column" align="center" justify="center" style={{ minHeight: '100vh' }}>
+        <Container maxWidth={32} pt={6} pb={[4, null, 5]}>
             <LoginForm />
-        </Flex>
+        </Container>
     </Fragment>
 )
 

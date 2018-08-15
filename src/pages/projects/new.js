@@ -17,7 +17,7 @@ class New extends Component {
                         background-size: 20rem;
                     }
                 `} />
-                <Container pt={6} pb={5}>
+                <Container pt={6} pb={[4, null, 5]}>
                     <ProjectForm />
                 </Container>
             </Fragment>
