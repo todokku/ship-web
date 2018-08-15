@@ -10,17 +10,15 @@ class New extends Component {
             <Fragment>
                 <Helmet title="Add a new project" />
                 <Header color="slate" />
-                {/* <style children={`
+                <style children={`
                     body {
-                        background: linear-gradient(
-                            24deg,
-                            ${cx('blue.6')},
-                            ${cx('indigo.2')}
-                        );
+                        background-color: ${cx('snow')};
+                        background-image: url(/pattern.svg);
+                        background-size: 20rem;
                     }
-                `} /> */}
-                <Container px={4} pt={6} pb={5}>
-                    <ProjectForm /* p={4} */ />
+                `} />
+                <Container pt={6} pb={5}>
+                    <ProjectForm />
                 </Container>
             </Fragment>
         )

@@ -8,9 +8,10 @@ import MarkdownRenderer from 'components/MarkdownRenderer';
 
 const InputTextarea = Input.withComponent('textarea')
 
-const Form = Box.withComponent('form').extend.attrs({ bg: 'white' })`
+const Form = Box.withComponent('form').extend.attrs({ bg: 'white', p: 4 })`
+    box-shadow: rgba(0, 0, 0, 0.063) 0px 8px 32px;
     text-align: left;
-    ${({ theme }) => theme.mediaQueries.md} {
+    ${({ theme }) => theme.mediaQueries.lg} {
         border-radius: ${({ theme }) => theme.radii[3]};
     }
 `
@@ -140,7 +141,7 @@ const InnerForm = ({
                 <Select
                     name="tags"
                     options={tags}
-                    placeholder="Help your project get discovered in relevant categories"
+                    placeholder="Help your project get discovered"
                     styles={selectStyles}
                     onChange={handleChange}
                     value={values.tags}
