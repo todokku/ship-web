@@ -9,10 +9,10 @@ class New extends Component {
         return (
             <Fragment>
                 <Helmet title="Add a new project" />
-                <Header color="slate" />
+                <Header />
                 <style children={`
                     body {
-                        background-color: ${cx('snow')};
+                        background-color: ${cx('violet.3')};
                         background-image: url(/pattern.svg);
                         background-size: 20rem;
                     }
