@@ -39,13 +39,11 @@ const LoginForm = props => (
     <Form {...props}>
         <Heading.h2 mb={4}>Login</Heading.h2>
         <Box>
-            {/* TODO: Use api.hackclub.com */}
             <Field label="Email" name="email" type="email" placeholder="orpheus@hackclub.com" />
             <Button w={1}>Get login code</Button>
         </Box>
         <TextDivider my={3} text="or" />
         <Box>
-            {/* TODO: Setup */}
             <Button bg="black" w={1} inverted><FA icon={['fab', 'slack-hash']} color={cx('primary')} /> Login with Slack</Button>
             <Button bg="#333" mt={3} w={1}><FA icon={['fab', 'github']} /> Login with GitHub</Button>
         </Box>

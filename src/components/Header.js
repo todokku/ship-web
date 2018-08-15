@@ -90,7 +90,6 @@ class Header extends Component {
                 <NavBar role="navigation" ml={-2} py={[1, 0]} color={(scrolled || fixed) ? 'inherit' : color} align="center">
                     <GatsbyItem to="/projects/new" children="New project" />
                     <GatsbyItem to="/login" children="Login" />
-                    {/* TODO: Hide login and show user profile when logged in */}
                     {/* <Avatar src="https://hackclub.com/team/orpheus.jpg" size={32} /> */}
                 </NavBar>
             </Base>

@@ -53,7 +53,6 @@ const DescriptionPreview = Box.extend.attrs({
     overflow: auto;
 `
 
-// TODO: Abstract into component
 const selectStyles = {
     control: base => ({
         ...base,
@@ -61,7 +60,6 @@ const selectStyles = {
     })
 }
 
-// TODO: Pull from API instead of hardcoding
 const topics = [
     { label: 'Web', value: 'web' },
     { label: 'Mobile', value: 'mobile' },
@@ -89,7 +87,6 @@ const InnerForm = ({
     <Form onSubmit={handleSubmit} {...props}>
         <Heading.h1 mb={4}>Add a new project</Heading.h1>
         <Row>
-            {/* TODO: Show uploaded image previews */}
             <Box>
                 <Label>Images</Label>
             </Box>
@@ -114,7 +111,6 @@ const InnerForm = ({
             />
         </Row>
         <Row>
-            {/* TODO: Abstract into component */}
             <Box mb={2} style={{ maxHeight: '24rem', overflow: 'hidden' }}>
                 <Label>Description</Label>
                 <DescriptionField
@@ -132,7 +128,6 @@ const InnerForm = ({
             </Box>
         </Row>
         <Row>
-            {/* TODO: Create list input for links */}
             <Box>
                 <Label>Link to your project (live demo, source code, video demo, etc…)</Label>
             </Box>
@@ -148,7 +143,6 @@ const InnerForm = ({
                 />
             </Box>
         </Row>
-        {/* TODO: Add creator automatically */}
         <Label>Who made this project?</Label>
         <Select
             name="authors"
