@@ -1,6 +1,6 @@
 import { Box, Heading } from '@hackclub/design-system'
 import React from 'react'
-import Tag from 'components/Tag'
+import Topic from 'components/Topic'
 import UserCard from 'components/UserCard'
 
 const SidebarSection = Box.extend.attrs({ bg: 'snow', p: 3 })`
@@ -14,19 +14,19 @@ const Sidebar = props => (
     <Box {...props}>
         <SidebarSection>
             <Heading.h3 mb={3}>
-                Popular tags
+                Popular topics
             </Heading.h3>
             <Box style={{ marginTop: '-4px' }}>
-                <Tag name="Web" />
-                <Tag name="Mobile" />
-                <Tag name="AI" />
-                <Tag name="Virtual reality" />
-                <Tag name="Hardware" />
-                <Tag name="Blockchain" />
-                <Tag name="Big data" />
-                <Tag name="Game" />
-                <Tag name="Tool" />
-                <Tag name="Art" />
+                <Topic name="Web" />
+                <Topic name="Mobile" />
+                <Topic name="AI" />
+                <Topic name="Virtual reality" />
+                <Topic name="Hardware" />
+                <Topic name="Blockchain" />
+                <Topic name="Big data" />
+                <Topic name="Game" />
+                <Topic name="Tool" />
+                <Topic name="Art" />
             </Box>
         </SidebarSection>
         <SidebarSection>
