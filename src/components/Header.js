@@ -82,7 +82,7 @@ class Header extends Component {
         const { scrolled } = this.state
         return (
             <Base role="banner" fixed={scrolled || fixed} {...props}>
-                <Flex align="center" style={{ flexGrow: 1 }}>
+                <Flex align="center" flex={1}>
                     <Flag fixed={scrolled || fixed} />
                     <SearchInput ml={2} />
                 </Flex>
