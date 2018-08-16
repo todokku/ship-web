@@ -5,9 +5,9 @@ import ProjectCard from 'components/ProjectCard'
 
 const Base = Box.extend`
     border-radius: ${({ theme }) => theme.radius};
-    margin-top: ${({ theme }) => theme.space[4]}px;
-    ${({ theme }) => theme.mediaQueries.md} {
-        &:not(:first-of-type) {
+    &:not(:first-of-type) {
+        margin-top: ${({ theme }) => theme.space[4]}px;
+        ${({ theme }) => theme.mediaQueries.md} {
             margin-top: ${({ theme }) => theme.space[5]}px;
         }
     }
