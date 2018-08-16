@@ -139,18 +139,18 @@ const InnerForm = ({
                     options={topics}
                     styles={selectStyles}
                     onChange={handleChange}
-                    value={values.tags}
+                    value={values.topics}
                     isMulti
                 />
             </Box>
         </Row>
         <Label>Who made this project?</Label>
         <Select
-            name="authors"
+            name="creators"
             options={[{ label: 'Victor Truong', value: 'ifvictr' }]}
             styles={selectStyles}
             onChange={handleChange}
-            value={values.authors}
+            value={values.creators}
             isMulti
         />
         <Row mt={4} grow={false}>
@@ -165,8 +165,8 @@ const ProjectForm = withFormik({
         name: '',
         tagline: '',
         description: '',
-        tags: [],
-        authors: []
+        topics: [],
+        creators: []
     }),
     validationSchema: yup.object().shape({
         name: yup.string().required('required'),
