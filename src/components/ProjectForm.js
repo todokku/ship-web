@@ -1,11 +1,24 @@
-import { Box, Button, Field, Flex, Heading, Input, Label, cx } from '@hackclub/design-system'
+import { Box, Button, Field, Flex, Heading, Input, Label, Text, cx } from '@hackclub/design-system'
 import { withFormik } from 'formik'
 import React from 'react'
 import Select from 'react-select'
 import styled, { css } from 'styled-components'
 import * as yup from 'yup'
 import MarkdownRenderer from 'components/MarkdownRenderer';
+import api from 'api'
 
+const Error = Text.extend.attrs({
+    className: 'error',
+    color: 'error',
+    f: 1,
+    ml: 1,
+    my: 0
+})`
+    font-weight: normal;
+    &:before {
+        content: '— ';
+    }
+`
 const InputTextarea = Input.withComponent('textarea')
 
 const Form = Box.withComponent('form').extend.attrs({ bg: 'white', p: 4 })`
@@ -80,6 +93,8 @@ const InnerForm = ({
     handleChange,
     handleSubmit,
     isSubmitting,
+    setFieldTouched,
+    setFieldValue,
     status,
     touched,
     values,
@@ -108,6 +123,7 @@ const InnerForm = ({
                 type="text"
                 placeholder="Fixing problem X with code"
                 value={values.tagline}
+                error={touched.tagline && errors.tagline}
                 onChange={handleChange}
             />
         </Row>
@@ -132,27 +148,37 @@ const InnerForm = ({
             <Box>
                 <Label>Link to your project (live demo, source code, video demo, etc…)</Label>
             </Box>
-            <Box>
-                <Label>Help your project get discovered with relevant topic tags</Label>
+            <Label mb={2}>
+                <Flex align="center" mb="2px" wrap>
+                    Help your project get discovered with relevant topic tags
+                    {touched.topics && errors.topics && <Error children={errors.topics} />}
+                </Flex>
                 <Select
                     name="topics"
                     options={topics}
                     styles={selectStyles}
-                    onChange={handleChange}
+                    onBlur={() => setFieldTouched('topics', true)}
+                    onChange={option => setFieldValue('topics', option)}
                     value={values.topics}
                     isMulti
                 />
-            </Box>
+            </Label>
         </Row>
-        <Label>Who made this project?</Label>
-        <Select
-            name="creators"
-            options={[{ label: 'Victor Truong', value: 'ifvictr' }]}
-            styles={selectStyles}
-            onChange={handleChange}
-            value={values.creators}
-            isMulti
-        />
+        <Label mb={2}>
+            <Flex align="center" mb="2px" wrap>
+                Who made this project?
+                {touched.creators && errors.creators && <Error children={errors.creators} />}
+            </Flex>
+            <Select
+                name="creators"
+                options={[{ label: 'Victor Truong', value: 'ifvictr' }]}
+                styles={selectStyles}
+                onBlur={() => setFieldTouched('creators', true)}
+                onChange={option => setFieldValue('creators', option)}
+                value={values.creators}
+                isMulti
+            />
+        </Label>
         <Row mt={4} grow={false}>
             <Button onClick={handleSubmit} disabled={isSubmitting} scale>Ship it!</Button>
             <Button bg="black" mt={[2, null, 0]} inverted>Cancel</Button>
@@ -161,21 +187,35 @@ const InnerForm = ({
 )
 
 const ProjectForm = withFormik({
-    mapPropsToValues: props => ({
+    mapPropsToValues: ({ params }) => ({
         name: '',
         tagline: '',
         description: '',
         topics: [],
-        creators: []
+        creators: [],
+        ...params
     }),
     validationSchema: yup.object().shape({
         name: yup.string().required('required'),
         tagline: yup.string().required('required'),
-        description: yup.string()
+        description: yup.string(),
+        topics: yup.array(),
+        creators: yup.array().min(1, 'project must have at least one creator')
     }),
     enableReinitialize: true,
-    handleSubmit: (data, { props, setSubmitting, setErrors }) => {
-        console.log(data)
+    handleSubmit: (data, { setSubmitting }) => {
+        const formattedData = { ...data }
+        formattedData.creators = data.creators.map(creator => creator.value)
+        formattedData.topics = data.topics.map(topic => topic.value)
+
+        api.post('v1/projects', { data: formattedData })
+            .then(res => {
+                // TODO
+            })
+            .catch(e => {
+                setSubmitting(false)
+                console.log(e)
+            })
     }
 })(InnerForm)
 
