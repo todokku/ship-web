@@ -1,7 +1,8 @@
 import axios from 'axios'
 
 export const url = process.env.NODE_ENV === 'production'
-    ? 'https://api.ship.hackclub.com'
+    // ? 'https://api.ship.hackclub.com'
+    ? 'https://ship-hackclub.herokuapp.com'
     : 'http://localhost:3000'
 
 const generateMethod = method => (path, options = {}) => {
