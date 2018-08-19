@@ -5,8 +5,6 @@ import React from 'react'
 import stringToColor from 'string-to-color'
 
 const Base = Badge.withComponent(Link).extend.attrs({
-    to: props => `/topics/${kebabCase(props.name)}`,
-    children: props => props.name,
     my: 1,
     mr: 2,
     p: 2,
@@ -16,7 +14,7 @@ const Base = Badge.withComponent(Link).extend.attrs({
 `
 
 const Topic = ({ name, ...props}) => (
-    <Base name={name} {...props} />
+    <Base to={`/topics/${kebabCase(name)}`} name={name} children={name} {...props} />
 )
 
 export default Topic
