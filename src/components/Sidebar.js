@@ -1,5 +1,4 @@
 import { Box } from '@hackclub/design-system'
-import React from 'react'
 
 const SidebarSection = Box.extend.attrs({ bg: 'snow', p: 3 })`
     border-radius: ${({ theme }) => theme.radius};
