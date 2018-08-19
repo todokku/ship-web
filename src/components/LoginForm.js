@@ -1,6 +1,7 @@
 import { FontAwesomeIcon as FA } from '@fortawesome/react-fontawesome'
 import { Box, Button, Divider, Field, Heading, cx } from '@hackclub/design-system'
 import React from 'react'
+import { url as baseUrl } from 'api'
 
 const Form = Box.withComponent('form').extend.attrs({ bg: 'white', p: 4 })`
     text-align: left;
@@ -37,6 +38,8 @@ const TextDivider = Divider.extend`
     }
 `
 
+const authPath = `${baseUrl}/v1/users/auth`
+
 const LoginForm = props => (
     <Form {...props}>
         <Heading.h2 mb={4}>Login</Heading.h2>
@@ -46,8 +49,8 @@ const LoginForm = props => (
         </Box>
         <TextDivider my={3} text="or" />
         <Box>
-            <Button bg="black" w={1} inverted><FA icon={['fab', 'slack-hash']} color={cx('primary')} /> Login with Slack</Button>
-            <Button bg="#333" mt={3} w={1}><FA icon={['fab', 'github']} /> Login with GitHub</Button>
+            <Button href={`${authPath}/slack`} bg="black" w={1} inverted><FA icon={['fab', 'slack-hash']} color={cx('primary')} /> Login with Slack</Button>
+            <Button href={`${authPath}/github`} bg="#333" mt={3} w={1}><FA icon={['fab', 'github']} /> Login with GitHub</Button>
         </Box>
     </Form>
 )
