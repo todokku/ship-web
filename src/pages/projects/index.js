@@ -76,7 +76,7 @@ class Projects extends Component {
                                     {data.links.length > 0
                                         ? (
                                             data.links.map(link => (
-                                                <LinkBox href={link.url} target="_blank" />
+                                                <LinkBox href={link.url} target="_blank" key={link.id} />
                                             ))
                                         )
                                         : (

@@ -7,7 +7,7 @@ const Base = Box.extend.attrs({ mt: -1 })``
 const TopicList = ({ topics = [], ...props }) => (
     <Base {...props}>
         {topics.map(topic => (
-            <Topic name={topic} />
+            <Topic name={topic} key={topic} />
         ))}
     </Base>
 )
