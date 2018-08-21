@@ -17,8 +17,8 @@ const topics = [
     'Hardware',
     'Blockchain',
     'Big data',
-    'Game',
-    'Tool',
+    'Gaming',
+    'Tools',
     'Art'
 ]
 
