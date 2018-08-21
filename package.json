@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "description": "Share your latest project with other hackers in the community.",
     "scripts": {
-        "build": "gatsby build --no-uglify",
+        "build": "gatsby build",
         "dev": "gatsby develop"
     },
     "repository": "https://github.com/hackclub/ship",
