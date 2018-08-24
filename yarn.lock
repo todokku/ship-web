@@ -2022,10 +2022,6 @@ colormin@^1.0.5:
     css-color-names "0.0.4"
     has "^1.0.1"
 
-colornames@^1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/colornames/-/colornames-1.1.1.tgz#f8889030685c7c4ff9e2a559f5077eb76a816f96"
-
 colors@^1.1.2:
   version "1.3.1"
   resolved "https://registry.yarnpkg.com/colors/-/colors-1.3.1.tgz#4accdb89cf2cabc7f982771925e9468784f32f3d"
@@ -4123,10 +4119,6 @@ hasha@^2.2.0:
   dependencies:
     is-stream "^1.0.1"
     pinkie-promise "^2.0.0"
-
-hex-rgb@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/hex-rgb/-/hex-rgb-1.0.0.tgz#532275697cb9823e052429b184c6781d46cfdf49"
 
 history@^4.6.2, history@^4.7.2:
   version "4.7.2"
@@ -8374,15 +8366,6 @@ string-similarity@^1.2.0:
   resolved "https://registry.yarnpkg.com/string-similarity/-/string-similarity-1.2.0.tgz#d75153cb383846318b7a39a8d9292bb4db4e9c30"
   dependencies:
     lodash "^4.13.1"
-
-string-to-color@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/string-to-color/-/string-to-color-2.0.0.tgz#147ccf95ac45ceb7ff14ed627aaf38769bd85ad4"
-  dependencies:
-    colornames "^1.1.1"
-    hex-rgb "^1.0.0"
-    lodash "^4.6.1"
-    rgb-hex "^1.0.0"
 
 string-width@^1.0.1:
   version "1.0.2"

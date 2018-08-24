@@ -37,7 +37,6 @@
         "react-helmet": "^5.2.0",
         "react-markdown": "^3.4.1",
         "react-select": "^2.0.0",
-        "string-to-color": "^2.0.0",
         "styled-components": "^3.4.1",
         "styled-system": "1.1.4",
         "url": "^0.11.0",

@@ -1,20 +1,17 @@
-import { Badge } from '@hackclub/design-system'
+import { Badge, cx } from '@hackclub/design-system'
 import Link from 'gatsby-link'
-import { kebabCase } from 'lodash'
 import React from 'react'
-import stringToColor from 'string-to-color'
 
 const Base = Badge.withComponent(Link).extend.attrs({
     my: 1,
     mr: 2,
-    p: 2,
-    style: props => ({ backgroundColor: stringToColor(props.name) })
+    p: 2
 })`
     text-shadow: rgba(0, 0, 0, 0.376) 0px 1px 2px;
 `
 
-const Topic = ({ name, ...props}) => (
-    <Base to={`/topics/${kebabCase(name)}`} name={name} children={name} {...props} />
+const Topic = ({ name, slug, color = 'muted', ...props}) => (
+    <Base to={`/topics/${slug}`} children={name} style={{ background: cx(color) }} {...props} />
 )
 
 export default Topic
