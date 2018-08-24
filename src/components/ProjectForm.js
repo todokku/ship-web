@@ -1,10 +1,10 @@
 import { Box, Button, Field, Flex, Heading, Input, Label, Text, cx } from '@hackclub/design-system'
 import { withFormik } from 'formik'
 import React from 'react'
-import Select from 'react-select'
 import styled, { css } from 'styled-components'
 import * as yup from 'yup'
 import MarkdownRenderer from 'components/MarkdownRenderer';
+import Select from 'components/Select'
 import api from 'api'
 
 const Error = Text.extend.attrs({
@@ -66,13 +66,6 @@ const DescriptionPreview = Box.extend.attrs({
     height: 100%;
     overflow: auto;
 `
-
-const selectStyles = {
-    control: base => ({
-        ...base,
-        background: 'transparent'
-    })
-}
 
 const topics = [
     { label: 'Web', value: 'web' },
@@ -156,7 +149,6 @@ const InnerForm = ({
                 <Select
                     name="topics"
                     options={topics}
-                    styles={selectStyles}
                     onBlur={() => setFieldTouched('topics', true)}
                     onChange={option => setFieldValue('topics', option)}
                     value={values.topics}
@@ -172,7 +164,6 @@ const InnerForm = ({
             <Select
                 name="creators"
                 options={[{ label: 'Victor Truong', value: 'ifvictr' }]}
-                styles={selectStyles}
                 onBlur={() => setFieldTouched('creators', true)}
                 onChange={option => setFieldValue('creators', option)}
                 value={values.creators}
