@@ -6,7 +6,11 @@ module.exports = {
         {
             resolve: 'gatsby-plugin-create-client-paths',
             options: {
-                prefixes: ['/projects/*', '/topics/*']
+                prefixes: [
+                    '/projects/*',
+                    '/topics/*',
+                    '/users/*'
+                ]
             }
         },
         {
