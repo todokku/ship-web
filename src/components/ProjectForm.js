@@ -4,7 +4,7 @@ import React from 'react'
 import styled, { css } from 'styled-components'
 import * as yup from 'yup'
 import MarkdownRenderer from 'components/MarkdownRenderer';
-import Select from 'components/Select'
+import { AsyncSelect, Select } from 'components/Select'
 import api from 'api'
 
 const Error = Text.extend.attrs({
@@ -67,18 +67,11 @@ const DescriptionPreview = Box.extend.attrs({
     overflow: auto;
 `
 
-const topics = [
-    { label: 'Web', value: 'web' },
-    { label: 'Mobile', value: 'mobile' },
-    { label: 'AI', value: 'ai' },
-    { label: 'Virtual reality', value: 'virtual-reality' },
-    { label: 'Hardware', value: 'hardware' },
-    { label: 'Blockchain', value: 'blockchain' },
-    { label: 'Big data', value: 'big-data' },
-    { label: 'Game', value: 'game' },
-    { label: 'Tool', value: 'tool' },
-    { label: 'Art', value: 'art' },
-]
+const getTopicOptions = () => api.get('v1/topics')
+    .then(res => res.data.map(topic => ({
+        label: topic.name,
+        value: topic.id
+    })))
 
 const InnerForm = ({
     errors,
@@ -146,13 +139,15 @@ const InnerForm = ({
                     Help your project get discovered with relevant topic tags
                     {touched.topics && errors.topics && <Error children={errors.topics} />}
                 </Flex>
-                <Select
+                <AsyncSelect
                     name="topics"
-                    options={topics}
                     onBlur={() => setFieldTouched('topics', true)}
                     onChange={option => setFieldValue('topics', option)}
                     value={values.topics}
                     isMulti
+                    cacheOptions
+                    defaultOptions
+                    loadOptions={getTopicOptions}
                 />
             </Label>
         </Row>

@@ -1,5 +1,5 @@
 import React from 'react'
-import Base from 'react-select'
+import Base, { Async as AsyncBase } from 'react-select'
 
 const styles = {
     control: base => ({
@@ -12,4 +12,8 @@ const Select = props => (
     <Base styles={styles} {...props} />
 )
 
-export default Select
+const AsyncSelect = props => (
+    <AsyncBase styles={styles} {...props} />
+)
+
+export default { Select, AsyncSelect }
