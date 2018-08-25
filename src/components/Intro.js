@@ -18,7 +18,7 @@ const Base = Section.extend`
 
 const Intro = props => (
     <Base {...props}>
-        <Heading.h1>Let’s get shipping!</Heading.h1>
+        <Heading.h1 f={7}>Let’s get shipping!</Heading.h1>
         <Text f={4} mt={3}>Share your latest project with other hackers in the community.</Text>
     </Base>
 )
