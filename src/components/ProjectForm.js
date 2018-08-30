@@ -3,7 +3,7 @@ import { withFormik } from 'formik'
 import React from 'react'
 import styled, { css } from 'styled-components'
 import * as yup from 'yup'
-import MarkdownRenderer from 'components/MarkdownRenderer';
+import MarkdownRenderer from 'components/MarkdownRenderer'
 import { AsyncSelect, Select } from 'components/Select'
 import api from 'api'
 
