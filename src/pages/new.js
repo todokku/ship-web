@@ -1,4 +1,5 @@
 import { Container, cx } from '@hackclub/design-system'
+import { navigateTo } from 'gatsby-link'
 import React, { Fragment } from 'react'
 import Helmet from 'react-helmet'
 import Header from 'components/Header'
@@ -16,7 +17,9 @@ const New = () => (
             }
         `} />
         <Container pt={6} pb={[4, null, 5]}>
-            <ProjectForm />
+            <ProjectForm onPostSubmit={data => {
+                navigateTo(`/projects/${data.data.slug}`)
+            }} />
         </Container>
     </Fragment>
 )

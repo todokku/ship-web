@@ -158,7 +158,7 @@ const InnerForm = ({
             </Flex>
             <Select
                 name="creators"
-                options={[{ label: 'Victor Truong', value: 'ifvictr' }]}
+                options={[{ label: 'Victor Truong', value: 1 }]}
                 onBlur={() => setFieldTouched('creators', true)}
                 onChange={option => setFieldValue('creators', option)}
                 value={values.creators}
@@ -189,15 +189,13 @@ const ProjectForm = withFormik({
         creators: yup.array().min(1, 'project must have at least one creator')
     }),
     enableReinitialize: true,
-    handleSubmit: (data, { setSubmitting }) => {
+    handleSubmit: (data, { setSubmitting, props }) => {
         const formattedData = { ...data }
         formattedData.creators = data.creators.map(creator => creator.value)
         formattedData.topics = data.topics.map(topic => topic.value)
 
         api.post('v1/projects', { data: formattedData })
-            .then(res => {
-                // TODO
-            })
+            .then(({ data }) => props.onPostSubmit(data))
             .catch(e => {
                 setSubmitting(false)
                 console.log(e)
