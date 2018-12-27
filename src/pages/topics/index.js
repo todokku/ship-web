@@ -3,7 +3,7 @@ import Helmet from 'react-helmet'
 import Footer from 'components/Footer'
 import Header from 'components/Header'
 import LoadingBar from 'components/LoadingBar'
-import NotFound from 'pages/404'
+import NotFound from 'components/NotFound'
 import api from 'api'
 
 class Topics extends Component {
