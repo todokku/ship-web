@@ -12,6 +12,7 @@ import {
     DropdownMenu,
     DropdownMenuOption
 } from 'components/Dropdown'
+import { algoliaAppId, algoliaApiKey } from 'data.json'
 
 const SearchInput = Input.extend.attrs({ py: 1, px: 3 })`
     appearance: none;
@@ -61,8 +62,8 @@ const Content = connectStateResults(BaseContent)
 const Search = props => (
     <DropdownContainer w={1} {...props}>
         <InstantSearch
-            appId="48MGJNGMGL"
-            apiKey="d68305f7568c620b865287096b6e3b43"
+            appId={algoliaAppId}
+            apiKey={algoliaApiKey}
             indexName="projects"
         >
             <SearchBox placeholder="Search projects, topics, and users…" />

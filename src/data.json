@@ -2,5 +2,7 @@
     "name": "Hack Club Ship",
     "title": "Share Your Latest Project with the Community",
     "description": "Share your latest project with other hackers in the community.",
-    "url": "https://ship.hackclub.com"
+    "url": "https://ship.hackclub.com",
+    "algoliaAppId": "48MGJNGMGL",
+    "algoliaApiKey": "d68305f7568c620b865287096b6e3b43"
 }
