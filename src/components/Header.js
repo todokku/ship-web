@@ -2,7 +2,7 @@ import { Avatar, Box, Flex, Link as A, cx } from '@hackclub/design-system'
 import Link from 'gatsby-link'
 import React, { Component } from 'react'
 import { css } from 'styled-components'
-import SearchInput from 'components/SearchInput'
+import Search from 'components/Search'
 
 const Base = Flex.withComponent('header').extend.attrs({
     align: 'center',
@@ -84,7 +84,7 @@ class Header extends Component {
             <Base role="banner" fixed={scrolled || fixed} {...props}>
                 <Flex align="center" flex={1}>
                     <Flag fixed={scrolled || fixed} />
-                    <SearchInput ml={2} />
+                    <Search ml={2} />
                 </Flex>
                 <NavBar role="navigation" ml={-2} py={[1, 0]} color={(scrolled || fixed) ? 'inherit' : color} align="center">
                     <GatsbyItem to="/new" children="New project" />
