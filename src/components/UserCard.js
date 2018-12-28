@@ -14,12 +14,18 @@ const Base = Flex.withComponent(Link).extend.attrs({ align: 'center' })`
     }
 `
 
-const UserCard = ({ name, username, avatarUrl, props }) => (
-    <Base to={`/users/${username}`} {...props}>
-        <Avatar src={avatarUrl} mr={2} />
+const sampleData = {
+    username: 'orpheus',
+    avatar_url: 'https://hackclub.com/team/orpheus.jpg',
+    name: 'Prophet Orpheus'
+}
+
+const UserCard = ({ data = sampleData, ...props }) => (
+    <Base to={`/users/${data.username}`} {...props}>
+        <Avatar src={data.avatar_url} mr={2} />
         <Flex align="left" flexDirection="column">
-            <Name>{name}</Name>
-            <Text.span f={1} color="muted">@{username}</Text.span>
+            <Name>{data.name}</Name>
+            <Text.span f={1} color="muted">@{data.username}</Text.span>
         </Flex>
     </Base>
 )
