@@ -10,8 +10,8 @@ const Base = Badge.withComponent(Link).extend.attrs({
     text-shadow: rgba(0, 0, 0, 0.376) 0px 1px 2px;
 `
 
-const Topic = ({ name, slug, color = 'muted', ...props}) => (
-    <Base to={`/topics/${slug}`} children={name} style={{ background: cx(color) }} {...props} />
+const Topic = ({ data, ...props}) => (
+    <Base to={`/topics/${data.slug}`} children={data.name} style={{ background: cx(data.color) }} {...props} />
 )
 
 export default Topic

@@ -89,7 +89,7 @@ class Projects extends Component {
                                     </Heading.h3>
                                     {data.topics.length > 0
                                         ? (
-                                            <TopicList topics={data.topics.map(topic => topic.name)} />
+                                            <TopicList topics={data.topics} />
                                         )
                                         : (
                                             <Text color="muted">No topics specified.</Text>
@@ -102,10 +102,9 @@ class Projects extends Component {
                                     {data.creators.length > 0
                                         ? (
                                             <Fragment>
-                                                <UserCard />
-                                                <UserCard />
-                                                <UserCard />
-                                                <UserCard />
+                                                {data.creators.map(creator => (
+                                                    <UserCard data={creator} key={creator.id} />
+                                                ))}
                                             </Fragment>
                                         )
                                         : (
